@@ -1,12 +1,5 @@
 package binary_search_tree;
 
-public class SearchInBST {
-    public static void main(String[] args) {
-
-    }
-
-}
-
 
  //Definition for a binary tree node.
  class TreeNode {
@@ -22,7 +15,7 @@ public class SearchInBST {
       }
   }
 
-class Solution {
+public class SearchInBST {
      public TreeNode searchBST(TreeNode root, int val) {
          if(root==null) return null;
          else if(root.val==val) return root;
