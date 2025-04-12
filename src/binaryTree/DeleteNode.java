@@ -1,4 +1,6 @@
-package binary_search_tree;
+package binaryTree;
+
+import binarySearchTree.TreeNode;
 
 public class DeleteNode {
 
