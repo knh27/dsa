@@ -1,6 +1,5 @@
 package binaryTree;
 
-import binarySearchTree.TreeNode;
 
 public class MaxPathSum {
     public int maxPathSum(TreeNode root) {

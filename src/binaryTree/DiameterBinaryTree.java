@@ -1,7 +1,6 @@
 package binaryTree;
 
 
-import binarySearchTree.TreeNode;
 
 public class DiameterBinaryTree{
     public int diameterOfBinaryTree(TreeNode root) {

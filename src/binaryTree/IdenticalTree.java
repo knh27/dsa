@@ -1,6 +1,5 @@
 package binaryTree;
 
-import binarySearchTree.TreeNode;
 
 public class IdenticalTree {
     public boolean isSameTree(TreeNode p, TreeNode q) {

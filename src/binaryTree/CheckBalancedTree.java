@@ -1,6 +1,5 @@
 package binaryTree;
 
-import binarySearchTree.TreeNode;
 
 public class CheckBalancedTree {
 
