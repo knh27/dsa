@@ -1,6 +1,6 @@
 package slidingWindowTwoPointer;
 
-public class longestSubstringNoRepeat {
+public class LongestSubstringNoRepeat {
     public int lengthOfLongestSubstring(String s) {
         int l=0, r=0, len=0,maxLen=0;
         int[] hash=new int[256];

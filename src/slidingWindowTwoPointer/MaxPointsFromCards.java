@@ -1,6 +1,6 @@
 package slidingWindowTwoPointer;
 
-public class maxPointsFromCards {
+public class MaxPointsFromCards {
     public int maxScore(int[] cardPoints, int k) {
         int leftSum=0,rightSum=0, i=0;
         for(i=0;i<k;i++){
