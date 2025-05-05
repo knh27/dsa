@@ -52,4 +52,29 @@ public class NoOfProvinces {
         }
 
     }
+
+    public int noOfProvinces(int[][] connected){
+         int V=connected.length;
+         Queue<Integer> q=new LinkedList<>();
+         boolean[] visited=new boolean[V];
+         int c=0;
+         for(int i=0;i<V;i++){
+             if(!visited[i]){
+                 q.add(i);
+                 visited[i]=true;
+                 c++;
+                 while(!q.isEmpty()){
+                     int node=q.poll();
+                     for(int k=0;k<V;k++){
+                         if(connected[node][k]==1 && visited[k]==false){
+                             q.add(k);
+                             visited[k]=true;
+                         }
+                     }
+                 }
+             }
+
+         }
+         return c;
+    }
 }
