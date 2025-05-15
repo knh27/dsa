@@ -11,13 +11,24 @@ public class CycleDetectionBFS {
     }
     public boolean isCycle(int V, List<Integer>[] adj) {
         boolean[] visited=new boolean[V];
-        boolean ans=false;
+        boolean ans=true;
+//        for(int i=0;i<V;i++){
+//            if(visited[i]==false){
+//                ans=checkCycle(i, V, visited, adj);
+//            }
+//        }
+
         for(int i=0;i<V;i++){
-            if(visited[i]==false){
-                ans=checkCycle(i, V, visited, adj);
+            if(!visited[i]){
+//                if(ans==false) break;
+//                ans=checkCycleDFS(i, -1, visited,adj);
+                if(checkCycleDFS(i,-1,visited,adj)){
+                    return true;
+                }
             }
         }
-        return ans;
+//        return ans;
+        return false;
     }
 
     public boolean checkCycle(int src, int V, boolean[] visited, List<Integer>[] adj){
@@ -37,6 +48,19 @@ public class CycleDetectionBFS {
                 else if(item!=parent){
                     return true;
                 }
+            }
+        }
+        return false;
+    }
+
+    public boolean checkCycleDFS(int src,int par, boolean[] vis, List<Integer>[] adj){
+        vis[src]=true;
+        for(Integer i:adj[src]){
+            if(vis[i]==true && i != par){
+                return true;
+            }
+            else if(checkCycleDFS(i, src, vis, adj)){
+                return true;
             }
         }
         return false;

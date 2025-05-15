@@ -7,7 +7,7 @@ public class TopViewTree {
     static class Pair{
         TreeNode node;
         Integer col;
-        Pair(TreeNode node, Integer col){
+Pair(TreeNode node, Integer col){
             this.node=node;
             this.col=col;
         }
