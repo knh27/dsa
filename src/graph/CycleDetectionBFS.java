@@ -66,4 +66,47 @@ public class CycleDetectionBFS {
         return false;
     }
 
+
+    public boolean isCycle(int V, int[][] edges) {
+        // Code here
+        boolean[] vis=new boolean[V];
+        //converting edges into adjency list
+        List<Integer>[] adj=new ArrayList[V];
+        for(int i=0;i<V;i++){
+            adj[i]=new ArrayList<>();
+        }
+        for(int[] edge:edges){
+            int u=edge[0];
+            int v=edge[1];
+
+            adj[u].add(v);
+            adj[v].add(u);
+        }
+
+        for(int i=0;i<V;i++){
+            if(!vis[i]){
+                if(checkCycleDFS(adj, vis, i, -1)){
+                    return true;
+                }
+            }
+
+        }
+
+
+        return false;
+    }
+
+    public boolean checkCycleDFS(List<Integer>[] adj, boolean[] vis, int src, int par){
+        vis[src]=true;
+        for(Integer nbr:adj[src]){
+            if(vis[nbr] && nbr!=par){
+                return true;
+            }
+            else if(!vis[nbr]){
+                if(checkCycleDFS(adj, vis, nbr, src)) return true;
+            }
+        }
+        return false;
+    }
+
 }
