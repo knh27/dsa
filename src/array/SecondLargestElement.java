@@ -1,4 +1,4 @@
-package com.pranav.striver_dsa_sheet.arrayeasy;
+package array;
 
 public class SecondLargestElement {
     public static void main(String[] args) {
