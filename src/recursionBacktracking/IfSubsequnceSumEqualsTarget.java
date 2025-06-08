@@ -2,17 +2,19 @@ package recursionBacktracking;
 import java.util.*;
 
 public class IfSubsequnceSumEqualsTarget {
-    static Boolean isSubsetSum(int arr[], int sum) {
-        // code here
-        int[] dp=new int[arr.length];
-        Arrays.fill(dp, -1);
+    static Boolean f_dp(int i, int tar, Boolean[][]dp, int[] a){
+        if(i<0){
+            if(tar!=0) return false;
+            else return true;
+        }
+        if(tar==0) return true;
 
-        if(f(arr, 0, 0, sum)){
-            return true;
-        }
-        else{
-            return false;
-        }
+        if(dp[i][tar]!=null) return dp[i][tar];
+
+        boolean notPick=f_dp(i-1, tar,dp, a);
+        boolean pick=false;
+        if(tar>=a[i])pick=f_dp(i-1, tar-a[i], dp, a);
+        return dp[i][tar]= (pick || notPick);
 
     }
 
@@ -26,6 +28,29 @@ public class IfSubsequnceSumEqualsTarget {
         boolean notPick=f(a, i+1, curSum, tar);
         if(notPick) return true;
         return pick||notPick;
+    }
+
+
+    static boolean f2(int i, int tar, int[] a){
+        if(i<0){
+            if(tar!=0) return false;
+            else return true;
+        }
+        if(tar==0) return true;
+        boolean notPick=f2(i-1, tar, a);
+        boolean pick=false;
+        if(tar>=a[i])pick=f2(i-1, tar-a[i], a);
+        return pick || notPick;
+
+    }
+
+
+    public static void main(String[] args) {
+        int[]a={2,3,4,1};
+        int tar=10;
+        System.out.println(f2(3, tar, a));
+//        System.out.println(f(3, tar, a));
+
     }
 
 
