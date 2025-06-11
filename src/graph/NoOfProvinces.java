@@ -78,3 +78,47 @@ public class NoOfProvinces {
          return c;
     }
 }
+/*
+same problem using dfs no of islands
+
+
+        int m=grid.length;
+        int n=grid[0].length;
+        boolean[][] vis=new boolean[m][n];
+
+        int[][] dir={{-1,0},{-1,1}, {0,1}, {1,1}
+        , {1,0}, {1,-1}, {0,-1}, {-1,-1}};
+
+        int cnt=0;
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                if(grid[i][j]=='L' && !vis[i][j]){
+                    dfs(i, j, vis, grid, dir);
+                    cnt++;
+                }
+            }
+        }
+        return cnt;
+
+
+
+
+
+
+
+public void dfs(int r, int c, boolean[][] vis, char[][] grid, int[][]dir){
+        vis[r][c]=true;
+        for(int k=0;k<8;k++){
+            int nr=r+dir[k][0];
+            int nc=c+dir[k][1];
+
+            if(nr>=0&&nc>=0&&nr<grid.length&&nc<grid[0].length &&
+                !vis[nr][nc]&&grid[nr][nc]=='L'
+                ){
+                    dfs(nr, nc, vis, grid,dir);
+                }
+            }
+    }
+
+
+*/
